@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent !important;
+    font-family: 'Orbitron', sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+html {
+    background: transparent !important;
+}
+
+.container {
+    position: absolute;
+    /* Key for tracking */
+    width: 200px;
+    /* Smaller for HUD */
+    /* Height auto? */
+    pointer-events: none;
+    /* Don't block clicking */
+    transition: opacity 0.2s;
+    opacity: 0;
+    /* Transform to center the pivot? No, we set top/left. */
+}
+
+.weapon-info {
+    /* Fully transparent, no borders */
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: skew(-10deg);
+}
+
+.ammo-text {
+    font-size: 48px;
+    /* Larger current ammo */
+    color: #00f0ff;
+    text-shadow: 0 0 15px #00f0ff;
+    margin-bottom: 5px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Removed divider and ammo-total */
+.divider,
+#ammo-total {
+    display: none;
+}
+
+.progress-bar-bg {
+    width: 200px;
+    height: 15px;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    /* Gap between segments */
+    margin-bottom: 0px;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.segment {
+    flex-grow: 1;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-20deg);
+}
+
+:root {
+    --progress-color: #00f0ff;
+}
+
+.segment.active {
+    background: var(--progress-color);
+    box-shadow: 0 0 5px var(--progress-color);
+}
+
+.segment.low-ammo {
+    background: #ff0000;
+    box-shadow: 0 0 5px #ff0000;
+}
+
+.progress-bar-fill {
+    display: none;
+}
+
+.weapon-name {
+    display: none;
+}
